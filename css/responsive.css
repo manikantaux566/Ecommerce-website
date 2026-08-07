@@ -19,3 +19,28 @@
     }
 
 }
+.hero h1{
+
+    font-size:38px;
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+.features{
+
+    grid-template-columns:1fr;
+
+    padding:30px;
+
+}

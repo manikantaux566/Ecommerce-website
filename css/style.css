@@ -84,3 +84,145 @@ body{
     font-size:13px;
 
 }
+/* ================= HERO ================= */
+
+.hero{
+
+    height:85vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+    background:linear-gradient(135deg,#2563eb,#1e3a8a);
+
+    color:white;
+
+}
+
+.hero-content{
+
+    max-width:700px;
+
+}
+
+.hero h1{
+
+    font-size:56px;
+
+    margin-bottom:20px;
+
+}
+
+.hero p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+}
+
+.btn-primary,
+.btn-secondary{
+
+    padding:15px 35px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-primary{
+
+    background:white;
+
+    color:#2563eb;
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.btn-secondary{
+
+    border:2px solid white;
+
+    color:white;
+
+}
+
+.btn-secondary:hover{
+
+    background:white;
+
+    color:#2563eb;
+
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    padding:80px;
+
+}
+
+.feature-card{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.feature-card h3{
+
+    margin:15px 0;
+
+}
