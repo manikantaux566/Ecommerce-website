@@ -1,0 +1,86 @@
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Global */
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f8f9fa;
+}
+
+/* Navbar */
+
+.navbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 80px;
+
+    background:#0f172a;
+
+    color:white;
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+}
+
+.logo{
+
+    font-size:28px;
+    font-weight:700;
+
+    cursor:pointer;
+
+}
+
+.nav-links{
+
+    display:flex;
+    list-style:none;
+
+    gap:35px;
+
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#3b82f6;
+
+}
+
+#cart-count{
+
+    background:#3b82f6;
+
+    color:white;
+
+    padding:2px 8px;
+
+    border-radius:50%;
+
+    margin-left:6px;
+
+    font-size:13px;
+
+}
