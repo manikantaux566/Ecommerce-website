@@ -1,5 +1,13 @@
-// Update cart badge
-
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-document.getElementById("cart-count").textContent = cart.length;
+const cartCount = document.getElementById("cart-count");
+
+if(cartCount){
+
+    cartCount.textContent = cart.reduce((total,item)=>{
+
+        return total + item.quantity;
+
+    },0);
+
+}

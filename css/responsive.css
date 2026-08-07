@@ -1,46 +1,31 @@
 @media(max-width:768px){
 
     .navbar{
-
         flex-direction:column;
-
         gap:20px;
-
         padding:20px;
-
     }
-
+    
     .nav-links{
-
         flex-direction:column;
-
         text-align:center;
-
     }
-
-}
-.hero h1{
-
-    font-size:38px;
-
-}
-
-.hero p{
-
-    font-size:18px;
-
-}
-
-.hero-buttons{
-
-    flex-direction:column;
-
-}
-
-.features{
-
-    grid-template-columns:1fr;
-
-    padding:30px;
-
-}
+    
+    .hero h1{
+        font-size:38px;
+    }
+    
+    .hero p{
+        font-size:18px;
+    }
+    
+    .hero-buttons{
+        flex-direction:column;
+    }
+    
+    .features{
+        grid-template-columns:1fr;
+        padding:30px;
+    }
+    
+    }
