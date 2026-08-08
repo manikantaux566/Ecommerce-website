@@ -2,22 +2,29 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElectroMart | Products</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <title>ElectroMart | Wishlist</title>
 
-    <!-- CSS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
     <link rel="stylesheet" href="css/style.css">
+
     <link rel="stylesheet" href="css/responsive.css">
+
 </head>
 
 <body>
 
-    <!-- Navbar -->
+    <!-- =========================
+         NAVBAR
+    ========================== -->
 
     <header>
 
@@ -30,50 +37,68 @@
             <ul class="nav-links">
 
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="index.html">
+                        Home
+                    </a>
                 </li>
-            
+
                 <li>
-                    <a href="products.html">Products</a>
+                    <a href="products.html">
+                        Products
+                    </a>
                 </li>
-            
+
                 <li>
                     <a href="wishlist.html">
                         Wishlist
                     </a>
                 </li>
-            
+
                 <li>
                     <a href="cart.html">
                         Cart
                         <span id="cart-count">0</span>
                     </a>
                 </li>
-            
+
                 <li>
-                    <button id="theme-toggle" class="theme-toggle">
+                    <button
+                        id="theme-toggle"
+                        class="theme-toggle"
+                        aria-label="Toggle dark mode"
+                    >
                         🌙
                     </button>
                 </li>
-            
+
             </ul>
 
         </nav>
 
     </header>
 
-    <!-- Products -->
 
-    <section class="products">
+    <!-- =========================
+         WISHLIST PAGE
+    ========================== -->
 
-        <h2>Our Products</h2>
+    <main class="wishlist-section">
 
-        <div id="product-container"></div>
+        <h1>
+            My Wishlist
+        </h1>
 
-    </section>
+        <div id="wishlist-container"></div>
 
-    <script src="css/js/data.js"></script>
-    <script src="css/js/products.js"></script>
+    </main>
+ 
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="css/js/wishlist.js"></script>
+
     <script src="css/js/main.js"></script>
 
 </body>

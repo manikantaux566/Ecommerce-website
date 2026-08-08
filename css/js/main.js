@@ -1,13 +1,53 @@
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// =========================
+// DARK MODE
+// =========================
 
-const cartCount = document.getElementById("cart-count");
+const themeToggle = document.getElementById("theme-toggle");
 
-if(cartCount){
 
-    cartCount.textContent = cart.reduce((total,item)=>{
+// Check saved theme
 
-        return total + item.quantity;
+const savedTheme = localStorage.getItem("theme");
 
-    },0);
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark-mode");
+
+    if (themeToggle) {
+        themeToggle.textContent = "☀️";
+    }
+
+}
+
+
+// =========================
+// TOGGLE DARK MODE
+// =========================
+
+if (themeToggle) {
+
+    themeToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark-mode");
+
+        const isDarkMode =
+            document.body.classList.contains("dark-mode");
+
+
+        if (isDarkMode) {
+
+            themeToggle.textContent = "☀️";
+
+            localStorage.setItem("theme", "dark");
+
+        } else {
+
+            themeToggle.textContent = "🌙";
+
+            localStorage.setItem("theme", "light");
+
+        }
+
+    });
 
 }
