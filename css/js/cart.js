@@ -271,3 +271,39 @@ function displayCart() {
 displayCart();
 
 updateCartCount();
+
+// =========================
+// CHECKOUT AUTHENTICATION
+// =========================
+
+const checkoutButton =
+    document.getElementById("checkout-btn");
+
+if (checkoutButton) {
+
+    checkoutButton.addEventListener("click", () => {
+
+        const loggedInUser =
+            localStorage.getItem("loggedInUser");
+
+
+        // User is not logged in
+
+        if (!loggedInUser) {
+
+            alert("Please sign in to continue to checkout.");
+
+            window.location.href = "signin.html";
+
+            return;
+
+        }
+
+
+        // User is authenticated
+
+        alert("Checkout access granted!");
+
+    });
+
+}
