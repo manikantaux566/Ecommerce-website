@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" type="image/png" href="images/electromart-logo.png">
 
 </head>
 
@@ -29,50 +30,50 @@
     <header>
 
         <nav class="navbar">
-
             <div class="logo">
-                ElectroMart
+                <img src="images/electromart-logo.png" alt="ElectroMart Logo">
+                <span>ElectroMart</span>
             </div>
-
+        
             <ul class="nav-links">
-
+        
                 <li>
-                    <a href="index.html">
-                        Home
-                    </a>
+                    <a href="index.html">Home</a>
                 </li>
-
+        
                 <li>
-                    <a href="products.html">
-                        Products
-                    </a>
+                    <a href="products.html">Products</a>
                 </li>
-
+        
                 <li>
-                    <a href="wishlist.html">
-                        Wishlist
-                    </a>
+                    <a href="wishlist.html">Wishlist</a>
                 </li>
-
+        
                 <li>
                     <a href="cart.html">
                         Cart
                         <span id="cart-count">0</span>
                     </a>
                 </li>
-
+        
                 <li>
-                    <button
-                        id="theme-toggle"
-                        class="theme-toggle"
-                        aria-label="Toggle dark mode"
-                    >
+                    <button id="theme-toggle" class="theme-toggle" type="button">
                         🌙
                     </button>
                 </li>
-
+        
+                <li id="auth-nav-item" class="signout-item">
+                    <button
+                        type="button"
+                        id="auth-nav-button"
+                        class="signout-btn"
+                    >
+                        Sign Out
+                    </button>
+                </li>
+        
             </ul>
-
+        
         </nav>
 
     </header>

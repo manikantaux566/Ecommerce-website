@@ -20,6 +20,11 @@ const wishlistContainer =
 
 function displayWishlist() {
 
+    if (!wishlistContainer) {
+        return;
+    }
+
+
     if (wishlist.length === 0) {
 
         wishlistContainer.innerHTML = `
@@ -98,16 +103,37 @@ function displayWishlist() {
 
 function removeFromWishlist(id) {
 
-    wishlist = wishlist.filter(
-        product => product.id !== id
-    );
+    const product =
+        wishlist.find(
+            item => item.id === id
+        );
+
+
+    wishlist =
+        wishlist.filter(
+            product => product.id !== id
+        );
+
 
     localStorage.setItem(
         "wishlist",
         JSON.stringify(wishlist)
     );
 
+
     displayWishlist();
+
+
+    // Polished message
+
+    if (product && typeof showToast === "function") {
+
+        showToast(
+            `${product.name} removed from wishlist`,
+            "success"
+        );
+
+    }
 
 }
 

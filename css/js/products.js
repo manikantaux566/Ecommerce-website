@@ -2,21 +2,24 @@
 // WISHLIST
 // =========================
 
-let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+let wishlist =
+    JSON.parse(localStorage.getItem("wishlist")) || [];
 
 
 // =========================
 // GET PRODUCT CONTAINER
 // =========================
 
-const productContainer = document.getElementById("product-container");
+const productContainer =
+    document.getElementById("product-container");
 
 
 // =========================
 // LOAD CART
 // =========================
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
 
 
 // =========================
@@ -25,15 +28,17 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function updateCartCount() {
 
-    const cartCount = document.getElementById("cart-count");
+    const cartCount =
+        document.getElementById("cart-count");
 
     if (cartCount) {
 
-        cartCount.textContent = cart.reduce((total, item) => {
+        cartCount.textContent =
+            cart.reduce((total, item) => {
 
-            return total + item.quantity;
+                return total + item.quantity;
 
-        }, 0);
+            }, 0);
 
     }
 
@@ -46,13 +51,19 @@ function updateCartCount() {
 
 function displayProducts() {
 
+    if (!productContainer) {
+        return;
+    }
+
     productContainer.innerHTML = "";
 
     products.forEach(product => {
 
-        const isWishlisted = wishlist.some(
-            item => item.id === product.id
-        );
+        const isWishlisted =
+            wishlist.some(
+                item => item.id === product.id
+            );
+
 
         productContainer.innerHTML += `
 
@@ -89,7 +100,11 @@ function displayProducts() {
                     class="wishlist-btn"
                     onclick="addToWishlist(${product.id})"
                 >
-                    ${isWishlisted ? "♥ Saved" : "♡ Save to Wishlist"}
+                    ${
+                        isWishlisted
+                            ? "♥ Saved"
+                            : "♡ Save to Wishlist"
+                    }
                 </button>
 
             </div>
@@ -107,13 +122,21 @@ function displayProducts() {
 
 function addToCart(id) {
 
-    const product = products.find(
-        item => item.id === id
-    );
+    const product =
+        products.find(
+            item => item.id === id
+        );
 
-    const existingProduct = cart.find(
-        item => item.id === id
-    );
+    if (!product) {
+        return;
+    }
+
+
+    const existingProduct =
+        cart.find(
+            item => item.id === id
+        );
+
 
     if (existingProduct) {
 
@@ -128,14 +151,26 @@ function addToCart(id) {
 
     }
 
+
     localStorage.setItem(
         "cart",
         JSON.stringify(cart)
     );
 
+
     updateCartCount();
 
-    alert(`${product.name} added to cart!`);
+
+    // Polished message
+
+    if (typeof showToast === "function") {
+
+        showToast(
+            `${product.name} added to cart`,
+            "success"
+        );
+
+    }
 
 }
 
@@ -146,32 +181,60 @@ function addToCart(id) {
 
 function addToWishlist(id) {
 
-    const product = products.find(
-        item => item.id === id
-    );
+    const product =
+        products.find(
+            item => item.id === id
+        );
 
-    const alreadySaved = wishlist.find(
-        item => item.id === id
-    );
+    if (!product) {
+        return;
+    }
+
+
+    const alreadySaved =
+        wishlist.find(
+            item => item.id === id
+        );
+
 
     if (alreadySaved) {
 
-        alert(`${product.name} is already in your wishlist!`);
+        if (typeof showToast === "function") {
+
+            showToast(
+                `${product.name} is already in your wishlist`,
+                "warning"
+            );
+
+        }
 
         return;
 
     }
 
+
     wishlist.push(product);
+
 
     localStorage.setItem(
         "wishlist",
         JSON.stringify(wishlist)
     );
 
+
     displayProducts();
 
-    alert(`${product.name} added to wishlist!`);
+
+    // Polished message
+
+    if (typeof showToast === "function") {
+
+        showToast(
+            `${product.name} saved to wishlist`,
+            "success"
+        );
+
+    }
 
 }
 

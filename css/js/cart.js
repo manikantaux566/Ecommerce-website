@@ -272,37 +272,59 @@ displayCart();
 
 updateCartCount();
 
-// =========================
+/// =========================
 // CHECKOUT AUTHENTICATION
 // =========================
 
-const checkoutButton =
-    document.getElementById("checkout-btn");
+const checkoutButton = document.getElementById("checkout-btn");
 
 if (checkoutButton) {
 
-    checkoutButton.addEventListener("click", () => {
+    checkoutButton.addEventListener("click", function () {
 
-        const loggedInUser =
-            localStorage.getItem("loggedInUser");
+        // Check cart
 
+        if (cart.length === 0) {
 
-        // User is not logged in
-
-        if (!loggedInUser) {
-
-            alert("Please sign in to continue to checkout.");
-
-            window.location.href = "signin.html";
+            showToast(
+                "Your cart is empty",
+                "warning"
+            );
 
             return;
 
         }
 
 
-        // User is authenticated
+        // Check authentication
 
-        alert("Checkout access granted!");
+        const loggedInUser =
+            localStorage.getItem("loggedInUser");
+
+
+        // Guest user
+
+        if (!loggedInUser) {
+
+            showToast(
+                "Please sign in to continue to checkout",
+                "warning"
+            );
+
+            setTimeout(() => {
+
+                window.location.href = "signin.html";
+
+            }, 1000);
+
+            return;
+
+        }
+
+
+        // Authenticated user
+
+        window.location.href = "checkout.html";
 
     });
 
