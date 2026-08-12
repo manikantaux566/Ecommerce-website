@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ElectroMart | My Orders</title>
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <!-- Responsive CSS -->
+    <link
+        rel="stylesheet"
+        href="css/responsive.css"
+    >
+
+    <!-- Orders CSS -->
+    <link
+        rel="stylesheet"
+        href="css/orders.css"
+    >
+
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="images/electromart-logo.png"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <img
+                src="images/electromart-logo.png"
+                alt="ElectroMart Logo"
+            >
+
+            <span>
+                ElectroMart
+            </span>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="products.html">
+                    Products
+                </a>
+            </li>
+
+            <li>
+                <a href="wishlist.html">
+                    Wishlist
+                </a>
+            </li>
+
+            <li>
+                <a href="cart.html">
+
+                    Cart
+
+                    <span id="cart-count">
+                        0
+                    </span>
+
+                </a>
+            </li>
+
+            <li>
+
+                <a
+                    href="orders.html"
+                    class="active"
+                >
+                    My Orders
+                </a>
+
+            </li>
+
+            <li>
+
+                <button
+                    id="theme-toggle"
+                    class="theme-toggle"
+                    type="button"
+                >
+                    🌙
+                </button>
+
+            </li>
+
+            <li
+                id="auth-nav-item"
+                class="signout-item"
+            >
+
+                <button
+                    type="button"
+                    id="auth-nav-button"
+                    class="signout-btn"
+                >
+                    Sign Out
+                </button>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     ORDERS PAGE
+========================= -->
+
+<main class="orders-page">
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="orders-header">
+
+        <span class="section-label">
+            ORDER HISTORY
+        </span>
+
+        <h1>
+            My Orders
+        </h1>
+
+        <p>
+            Track your purchases and check your order status.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         ORDER FILTERS
+    ========================= -->
+
+    <section class="orders-controls">
+
+        <div class="orders-filter">
+
+            <button
+                class="order-filter-btn active"
+                data-status="all"
+            >
+                All Orders
+            </button>
+
+            <button
+                class="order-filter-btn"
+                data-status="processing"
+            >
+                Processing
+            </button>
+
+            <button
+                class="order-filter-btn"
+                data-status="shipped"
+            >
+                Shipped
+            </button>
+
+            <button
+                class="order-filter-btn"
+                data-status="delivered"
+            >
+                Delivered
+            </button>
+
+            <button
+                class="order-filter-btn"
+                data-status="cancelled"
+            >
+                Cancelled
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ORDERS CONTAINER
+    ========================= -->
+
+    <section
+        id="orders-container"
+        class="orders-container"
+    >
+
+        <!-- Orders will be loaded by orders.js -->
+
+    </section>
+
+
+
+    <!-- =========================
+         EMPTY ORDERS
+    ========================= -->
+
+    <section
+        id="empty-orders"
+        class="empty-orders"
+        style="display: none;"
+    >
+
+        <div class="empty-orders-icon">
+            📦
+        </div>
+
+        <h2>
+            No Orders Yet
+        </h2>
+
+        <p>
+            You haven't placed any orders yet.
+            Start shopping and your orders will appear here.
+        </p>
+
+        <a
+            href="products.html"
+            class="orders-shop-btn"
+        >
+            Start Shopping
+        </a>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script src="css/js/main.js"></script>
+
+<script src="css/js/orders.js"></script>
+
+
+</body>
+
+</html>

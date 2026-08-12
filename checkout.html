@@ -2,99 +2,500 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>ElectroMart | Checkout</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="icon" type="image/png" href="images/electromart-logo.png">
+    <!-- Google Font -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Main CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- Checkout CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/checkout.css"
+    >
+
+
+    <!-- Responsive CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/responsive.css"
+    >
+
+
+    <!-- Favicon -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="images/electromart-logo.png"
+    >
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
 <header>
 
-<nav class="navbar">
+    <nav class="navbar">
 
-<div class="logo">ElectroMart</div>
 
-<ul class="nav-links">
+        <div class="logo">
 
-<li><a href="index.html">Home</a></li>
-<li><a href="products.html">Products</a></li>
-<li><a href="wishlist.html">Wishlist</a></li>
-<li><a href="cart.html">Cart</a></li>
+            <img
+                src="images/electromart-logo.png"
+                alt="ElectroMart Logo"
+            >
 
-<li>
-<button id="theme-toggle" class="theme-toggle">🌙</button>
-</li>
+            <span>
+                ElectroMart
+            </span>
 
-</ul>
+        </div>
 
-</nav>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+
+            <li>
+                <a href="products.html">
+                    Products
+                </a>
+            </li>
+
+
+            <li>
+                <a href="wishlist.html">
+                    Wishlist
+                </a>
+            </li>
+
+
+            <li>
+                <a href="cart.html">
+                    Cart
+                    <span id="cart-count">
+                        0
+                    </span>
+                </a>
+            </li>
+
+
+            <li>
+
+                <button
+                    id="theme-toggle"
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Toggle dark mode"
+                >
+                    🌙
+                </button>
+
+            </li>
+
+        </ul>
+
+    </nav>
 
 </header>
 
 
+
+<!-- =========================
+     CHECKOUT PAGE
+========================= -->
+
 <main class="checkout-page">
 
-<div class="checkout-card">
 
-<h1>Checkout</h1>
+    <!-- PAGE HEADER -->
 
-<p id="welcome-user"></p>
+    <div class="checkout-header">
 
-<form id="checkout-form">
+        <span class="checkout-label">
+            SECURE CHECKOUT
+        </span>
 
-<div class="form-group">
+        <h1>
+            Complete Your Order
+        </h1>
 
-<label>Full Name</label>
+        <p>
+            Enter your delivery details and choose your preferred
+            payment method.
+        </p>
 
-<input type="text" id="name" required>
-
-</div>
-
-
-<div class="form-group">
-
-<label>Delivery Address</label>
-
-<textarea id="address" rows="4" required></textarea>
-
-</div>
+    </div>
 
 
-<div class="form-group">
 
-<label>Payment Method</label>
+    <!-- CHECKOUT LAYOUT -->
 
-<select id="payment">
-
-<option>Cash on Delivery</option>
-<option>UPI</option>
-<option>Credit Card</option>
-
-</select>
-
-</div>
+    <div class="checkout-layout">
 
 
-<button type="submit" class="checkout-btn">
-Place Order
-</button>
+        <!-- =========================
+             DELIVERY DETAILS
+        ========================== -->
 
-</form>
+        <section class="checkout-card">
 
-</div>
+
+            <div class="checkout-card-header">
+
+                <div class="checkout-icon">
+                    📦
+                </div>
+
+                <div>
+
+                    <h2>
+                        Delivery Details
+                    </h2>
+
+                    <p>
+                        Where should we deliver your order?
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- USER -->
+
+            <p
+                id="welcome-user"
+                class="welcome-user"
+            >
+            </p>
+
+
+            <form id="checkout-form">
+
+
+                <!-- FULL NAME -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- ADDRESS -->
+
+                <div class="form-group">
+
+                    <label for="address">
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                        id="address"
+                        rows="5"
+                        placeholder="Enter your complete delivery address"
+                        autocomplete="street-address"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- PAYMENT -->
+
+                <div class="form-group">
+
+                    <label for="payment">
+                        Payment Method
+                    </label>
+
+                    <select
+                        id="payment"
+                        required
+                    >
+
+                        <option value="Cash on Delivery">
+                            Cash on Delivery
+                        </option>
+
+                        <option value="UPI">
+                            UPI
+                        </option>
+
+                        <option value="Credit Card">
+                            Credit Card
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- SECURITY NOTE -->
+
+                <div class="checkout-security">
+
+                    <span>
+                        🔒
+                    </span>
+
+                    <p>
+                        Your information is securely handled
+                        and protected.
+                    </p>
+
+                </div>
+
+
+
+                <!-- PLACE ORDER -->
+
+                <button
+                    type="submit"
+                    class="checkout-btn"
+                >
+
+                    <span>
+                        Place Order
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+            </form>
+
+        </section>
+
+
+
+        <!-- =========================
+             ORDER SUMMARY
+        ========================== -->
+
+        <aside class="order-summary-card">
+
+
+            <div class="summary-header">
+
+                <div>
+
+                    <span class="summary-label">
+                        YOUR ORDER
+                    </span>
+
+                    <h2>
+                        Order Summary
+                    </h2>
+
+                </div>
+
+                <span
+                    id="checkout-item-count"
+                    class="item-count"
+                >
+                    0 Items
+                </span>
+
+            </div>
+
+
+            <!-- CART ITEMS -->
+
+            <div
+                id="checkout-items"
+                class="checkout-items"
+            >
+
+                <!-- Items will be loaded by JavaScript -->
+
+            </div>
+
+
+            <!-- SUMMARY DIVIDER -->
+
+            <div class="summary-divider">
+            </div>
+
+
+            <!-- PRICE DETAILS -->
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong id="checkout-subtotal">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Delivery
+                </span>
+
+                <strong class="free-delivery">
+                    FREE
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Discount
+                </span>
+
+                <strong
+                    id="checkout-discount"
+                    class="discount-value"
+                >
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-divider">
+            </div>
+
+
+            <!-- FINAL TOTAL -->
+
+            <div class="summary-total">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="checkout-total">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <!-- BENEFITS -->
+
+            <div class="checkout-benefits">
+
+                <div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <p>
+                        Free delivery across India
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <p>
+                        Secure payment processing
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <p>
+                        Easy order tracking
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </aside>
+
+    </div>
+
 
 </main>
 
 
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script src="css/js/main.js"></script>
+
 <script src="css/js/checkout.js"></script>
 
+
 </body>
+
 </html>

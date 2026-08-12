@@ -2,10 +2,11 @@
 // DARK MODE
 // =========================
 
-const themeToggle = document.getElementById("theme-toggle");
+const themeToggle =
+    document.getElementById("theme-toggle");
 
-// Check saved theme
-const savedTheme = localStorage.getItem("theme");
+const savedTheme =
+    localStorage.getItem("theme");
 
 if (savedTheme === "dark") {
 
@@ -31,17 +32,24 @@ if (themeToggle) {
         const isDarkMode =
             document.body.classList.contains("dark-mode");
 
+
         if (isDarkMode) {
 
             themeToggle.textContent = "☀️";
 
-            localStorage.setItem("theme", "dark");
+            localStorage.setItem(
+                "theme",
+                "dark"
+            );
 
         } else {
 
             themeToggle.textContent = "🌙";
 
-            localStorage.setItem("theme", "light");
+            localStorage.setItem(
+                "theme",
+                "light"
+            );
 
         }
 
@@ -50,9 +58,9 @@ if (themeToggle) {
 }
 
 
-// =========================
+// =========================================
 // SIGN OUT
-// =========================
+// =========================================
 
 function signOut() {
 
@@ -64,6 +72,8 @@ function signOut() {
     );
 
     updateAuthNavigation();
+
+    updateCartCount();
 
 }
 
@@ -80,48 +90,103 @@ function updateAuthNavigation() {
     const authNavButton =
         document.getElementById("auth-nav-button");
 
-    if (!authNavItem || !authNavButton) {
-        return;
-    }
+    const profileNavItem =
+        document.getElementById("profile-nav-item");
+
 
     const loggedInUser =
         localStorage.getItem("loggedInUser");
 
 
+    // =========================
+    // USER LOGGED IN
+    // =========================
+
     if (loggedInUser) {
 
-        // User is logged in
+        // Show Profile
 
-        authNavButton.textContent = "Sign Out";
+        if (profileNavItem) {
 
-        authNavButton.className = "signout-btn";
+            profileNavItem.style.display =
+                "list-item";
 
-        authNavButton.onclick = function () {
+        }
 
-            localStorage.removeItem("loggedInUser");
 
-            showToast(
-                "You have been signed out",
-                "success"
-            );
+        // Sign Out button
 
-            updateAuthNavigation();
+        if (authNavItem) {
 
-        };
+            authNavItem.style.display =
+                "list-item";
 
-    } else {
+        }
 
-        // User is a guest
 
-        authNavButton.textContent = "Sign In";
+        if (authNavButton) {
 
-        authNavButton.className = "signin-nav-btn";
+            authNavButton.textContent =
+                "Sign Out";
 
-        authNavButton.onclick = function () {
+            authNavButton.className =
+                "signout-btn";
 
-            window.location.href = "signin.html";
+            authNavButton.onclick =
+                function () {
 
-        };
+                    signOut();
+
+                };
+
+        }
+
+    }
+
+
+    // =========================
+    // USER NOT LOGGED IN
+    // =========================
+
+    else {
+
+        // Hide Profile
+
+        if (profileNavItem) {
+
+            profileNavItem.style.display =
+                "none";
+
+        }
+
+
+        // Show Sign In
+
+        if (authNavItem) {
+
+            authNavItem.style.display =
+                "list-item";
+
+        }
+
+
+        if (authNavButton) {
+
+            authNavButton.textContent =
+                "Sign In";
+
+            authNavButton.className =
+                "signin-nav-btn";
+
+            authNavButton.onclick =
+                function () {
+
+                    window.location.href =
+                        "signin.html";
+
+                };
+
+        }
 
     }
 
@@ -132,10 +197,16 @@ function updateAuthNavigation() {
 // TOAST NOTIFICATION
 // =========================================
 
-function showToast(message, type = "success") {
+function showToast(
+    message,
+    type = "success"
+) {
 
     const existingToast =
-        document.querySelector(".toast-message");
+        document.querySelector(
+            ".toast-message"
+        );
+
 
     if (existingToast) {
         existingToast.remove();
@@ -145,17 +216,25 @@ function showToast(message, type = "success") {
     const toast =
         document.createElement("div");
 
+
     toast.className =
         `toast-message toast-${type}`;
 
 
     const icon =
-        type === "success" ? "✓" : "⚠";
+        type === "success"
+            ? "✓"
+            : "⚠";
 
 
     toast.innerHTML = `
-        <span class="toast-icon">${icon}</span>
-        <span>${message}</span>
+        <span class="toast-icon">
+            ${icon}
+        </span>
+
+        <span>
+            ${message}
+        </span>
     `;
 
 
@@ -164,10 +243,15 @@ function showToast(message, type = "success") {
 
     setTimeout(() => {
 
-        toast.classList.add("toast-hide");
+        toast.classList.add(
+            "toast-hide"
+        );
+
 
         setTimeout(() => {
+
             toast.remove();
+
         }, 300);
 
     }, 2500);
@@ -176,7 +260,81 @@ function showToast(message, type = "success") {
 
 
 // =========================================
-// INITIALIZE AUTH NAVIGATION
+// GLOBAL CART COUNT
+// =========================================
+
+function getCartStorageKey() {
+
+    const loggedInUser =
+        localStorage.getItem("loggedInUser");
+
+
+    if (!loggedInUser) {
+
+        return "electromart_guest_cart";
+
+    }
+
+
+    return "electromart_cart_" +
+        encodeURIComponent(loggedInUser);
+
+}
+
+
+function updateCartCount() {
+
+    const cartCount =
+        document.getElementById("cart-count");
+
+
+    if (!cartCount) {
+        return;
+    }
+
+
+    const cartKey =
+        getCartStorageKey();
+
+
+    const cart =
+        JSON.parse(
+            localStorage.getItem(cartKey)
+        ) || [];
+
+
+    const totalItems =
+        cart.reduce(
+            (total, item) =>
+                total +
+                (item.quantity || 1),
+            0
+        );
+
+
+    cartCount.textContent =
+        totalItems;
+
+
+    if (totalItems > 0) {
+
+        cartCount.style.display =
+            "inline-flex";
+
+    } else {
+
+        cartCount.style.display =
+            "none";
+
+    }
+
+}
+
+
+// =========================================
+// INITIALIZE
 // =========================================
 
 updateAuthNavigation();
+
+updateCartCount();

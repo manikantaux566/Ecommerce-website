@@ -1,9 +1,32 @@
 // =========================
+// GET CURRENT USER WISHLIST KEY
+// =========================
+
+function getProductsWishlistKey() {
+
+    const loggedInUser =
+        localStorage.getItem("loggedInUser");
+
+    // Guest wishlist
+    if (!loggedInUser) {
+        return "electromart_guest_wishlist";
+    }
+
+    // User-specific wishlist
+    return "electromart_wishlist_" +
+        encodeURIComponent(loggedInUser);
+}
+
+
+// =========================
 // WISHLIST
 // =========================
 
-let wishlist =
-    JSON.parse(localStorage.getItem("wishlist")) || [];
+let wishlist = JSON.parse(
+    localStorage.getItem(
+        getProductsWishlistKey()
+    )
+) || [];
 
 
 // =========================
@@ -15,11 +38,39 @@ const productContainer =
 
 
 // =========================
-// LOAD CART
+// GET SELECTED CATEGORY
 // =========================
 
-let cart =
-    JSON.parse(localStorage.getItem("cart")) || [];
+const urlParams =
+    new URLSearchParams(window.location.search);
+
+const selectedCategory =
+    urlParams.get("category");
+
+
+// =========================
+// GET CURRENT USER CART
+// =========================
+
+function getProductsCartKey() {
+
+    const loggedInUser =
+        localStorage.getItem("loggedInUser");
+
+    if (!loggedInUser) {
+        return "electromart_guest_cart";
+    }
+
+    return "electromart_cart_" +
+        encodeURIComponent(loggedInUser);
+}
+
+
+let cart = JSON.parse(
+    localStorage.getItem(
+        getProductsCartKey()
+    )
+) || [];
 
 
 // =========================
@@ -46,6 +97,44 @@ function updateCartCount() {
 
 
 // =========================
+// GET FILTERED PRODUCTS
+// =========================
+
+function getFilteredProducts() {
+
+    // No category = show everything
+
+    if (!selectedCategory) {
+
+        return products;
+
+    }
+
+
+    const category =
+        selectedCategory.toLowerCase();
+
+
+    return products.filter(product => {
+
+        if (!product.category) {
+            return false;
+        }
+
+        return product.category
+            .toLowerCase()
+            .replace(/\s+/g, "")
+            .replace(/-/g, "") ===
+            category
+                .replace(/\s+/g, "")
+                .replace(/-/g, "");
+
+    });
+
+}
+
+
+// =========================
 // DISPLAY PRODUCTS
 // =========================
 
@@ -55,14 +144,74 @@ function displayProducts() {
         return;
     }
 
+
     productContainer.innerHTML = "";
 
-    products.forEach(product => {
+
+    const filteredProducts =
+        getFilteredProducts();
+
+
+    // =========================
+    // NO PRODUCTS FOUND
+    // =========================
+
+    if (filteredProducts.length === 0) {
+
+        productContainer.innerHTML = `
+
+            <div class="empty-cart">
+
+                <h2>
+                    No products found
+                </h2>
+
+                <p>
+                    We couldn't find products in this category.
+                </p>
+
+                <a href="products.html">
+                    View All Products
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    // =========================
+    // DISPLAY PRODUCTS
+    // =========================
+
+    filteredProducts.forEach(product => {
 
         const isWishlisted =
             wishlist.some(
                 item => item.id === product.id
             );
+
+
+        const price =
+            Number(product.price) || 0;
+
+
+        const originalPrice =
+            Number(product.originalPrice) || price;
+
+
+        const discount =
+            originalPrice > 0
+                ? Math.round(
+                    (
+                        (originalPrice - price) /
+                        originalPrice
+                    ) * 100
+                )
+                : 0;
 
 
         productContainer.innerHTML += `
@@ -74,27 +223,70 @@ function displayProducts() {
                     alt="${product.name}"
                 >
 
+
                 <h3>
                     ${product.name}
                 </h3>
 
-                <p class="rating">
-                    ${product.rating}
-                </p>
+
+                <!-- RATING -->
+
+                <div class="rating">
+
+                    <span class="rating-badge">
+                        ★ ${product.rating || "4.5"}
+                    </span>
+
+                    <span class="rating-text">
+                        Excellent
+                    </span>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
 
                 <p class="description">
-                    ${product.description}
+                    ${product.description || "Premium quality electronic product."}
                 </p>
 
-                <h4>
-                    ₹${product.price.toLocaleString()}
-                </h4>
+
+                <!-- PRICING -->
+
+                <div class="product-pricing">
+
+                    <strong class="sale-price">
+                        ₹${price.toLocaleString()}
+                    </strong>
+
+
+                    ${
+                        originalPrice > price
+                        ? `
+                            <del class="original-price">
+                                ₹${originalPrice.toLocaleString()}
+                            </del>
+
+                            <span class="discount-badge">
+                                ${discount}% OFF
+                            </span>
+                        `
+                        : ""
+                    }
+
+                </div>
+
+
+                <!-- ADD TO CART -->
 
                 <button
                     onclick="addToCart(${product.id})"
                 >
                     Add to Cart
                 </button>
+
+
+                <!-- WISHLIST -->
 
                 <button
                     class="wishlist-btn"
@@ -127,6 +319,7 @@ function addToCart(id) {
             item => item.id === id
         );
 
+
     if (!product) {
         return;
     }
@@ -153,7 +346,7 @@ function addToCart(id) {
 
 
     localStorage.setItem(
-        "cart",
+        getProductsCartKey(),
         JSON.stringify(cart)
     );
 
@@ -161,7 +354,9 @@ function addToCart(id) {
     updateCartCount();
 
 
-    // Polished message
+    // =========================
+    // SUCCESS MESSAGE
+    // =========================
 
     if (typeof showToast === "function") {
 
@@ -185,6 +380,7 @@ function addToWishlist(id) {
         products.find(
             item => item.id === id
         );
+
 
     if (!product) {
         return;
@@ -216,8 +412,10 @@ function addToWishlist(id) {
     wishlist.push(product);
 
 
+    // Save to CURRENT USER'S wishlist
+
     localStorage.setItem(
-        "wishlist",
+        getProductsWishlistKey(),
         JSON.stringify(wishlist)
     );
 
@@ -225,7 +423,9 @@ function addToWishlist(id) {
     displayProducts();
 
 
-    // Polished message
+    // =========================
+    // SUCCESS MESSAGE
+    // =========================
 
     if (typeof showToast === "function") {
 

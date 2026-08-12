@@ -1,0 +1,620 @@
+/* =========================
+   TRACK ORDER PAGE
+========================= */
+
+.track-order-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 20px 100px;
+}
+
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.track-order-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.track-order-header h1 {
+    margin: 8px 0 10px;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.track-order-header p {
+    margin: 0;
+    opacity: 0.7;
+}
+
+
+/* =========================
+   SEARCH CARD
+========================= */
+
+.track-search-card {
+    max-width: 750px;
+    margin: 0 auto 35px;
+    padding: 28px;
+    border-radius: 18px;
+    background: var(--card-bg, #ffffff);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.track-order-page.dark-mode .track-search-card {
+    background: #151515;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+#track-order-form {
+    display: flex;
+    gap: 14px;
+    align-items: end;
+}
+
+.track-input-group {
+    flex: 1;
+}
+
+.track-input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.track-input-group input {
+    width: 100%;
+    height: 48px;
+    padding: 0 15px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+}
+
+.track-input-group input:focus {
+    border-color: #111;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================
+   TRACK BUTTON
+========================= */
+
+.track-btn {
+    height: 48px;
+    padding: 0 25px;
+    border: none;
+    border-radius: 10px;
+    background: #111;
+    color: #fff;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.track-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.track-message {
+    margin: 15px 0 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+/* =========================
+   ORDER RESULT
+========================= */
+
+.order-result {
+    width: 100%;
+}
+
+.tracked-order-card {
+    padding: 35px;
+    border-radius: 20px;
+    background: var(--card-bg, #ffffff);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
+}
+
+
+/* =========================
+   ORDER HEADER
+========================= */
+
+.tracked-order-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.tracked-order-header h2 {
+    margin: 6px 0 0;
+    font-size: 24px;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.order-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-radius: 30px;
+    background: #e8f7ed;
+    color: #15803d;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   ORDER INFO
+========================= */
+
+.tracked-order-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 25px 0;
+}
+
+.tracked-order-info div {
+    padding: 18px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.035);
+}
+
+.tracked-order-info span {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 13px;
+    opacity: 0.65;
+}
+
+.tracked-order-info strong {
+    font-size: 15px;
+}
+
+
+/* =========================
+   SECTION HEADINGS
+========================= */
+
+.tracking-section,
+.tracked-products-section,
+.delivery-address-section {
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.tracking-section h3,
+.tracked-products-section h3,
+.delivery-address-section h3 {
+    margin: 0 0 25px;
+    font-size: 20px;
+}
+
+
+/* =========================
+   TRACKING TIMELINE
+========================= */
+
+.tracking-timeline {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+/* Connecting line */
+
+.tracking-timeline::before {
+    content: "";
+    position: absolute;
+    top: 21px;
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background: #e5e5e5;
+    z-index: 0;
+}
+
+
+.tracking-step {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    text-align: center;
+}
+
+
+/* =========================
+   TRACKING ICON
+========================= */
+
+.tracking-icon {
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #eeeeee;
+    color: #777;
+    font-size: 17px;
+    border: 3px solid #fff;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================
+   COMPLETED STEP
+========================= */
+
+.tracking-step.completed .tracking-icon {
+    background: #111;
+    color: #fff;
+}
+
+
+/* =========================
+   CURRENT STEP
+========================= */
+
+.tracking-step.current .tracking-icon {
+    background: #111;
+    color: #fff;
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.08);
+
+    /*
+       Minimal delivery progress animation.
+       The current order status gently pulses.
+    */
+    animation: trackingPulse 1.8s ease-in-out infinite;
+}
+
+
+/* =========================
+   CURRENT STEP PULSE
+========================= */
+
+@keyframes trackingPulse {
+
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.08);
+    }
+
+    50% {
+        transform: scale(1.06);
+        box-shadow: 0 0 0 9px rgba(0, 0, 0, 0.04);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.08);
+    }
+
+}
+
+
+/* =========================
+   TRACKING TEXT
+========================= */
+
+.tracking-content strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.tracking-content span {
+    display: block;
+    max-width: 140px;
+    margin: 0 auto;
+    font-size: 11px;
+    line-height: 1.5;
+    opacity: 0.6;
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.tracked-products {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tracked-product-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.035);
+}
+
+.tracked-product-item img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.tracked-product-info {
+    flex: 1;
+}
+
+.tracked-product-info h4 {
+    margin: 0 0 5px;
+    font-size: 15px;
+}
+
+.tracked-product-info p {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.65;
+}
+
+.tracked-product-price {
+    font-weight: 600;
+}
+
+
+/* =========================
+   ADDRESS
+========================= */
+
+.delivery-address-section p {
+    margin: 0;
+    padding: 18px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.035);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.track-order-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.cancel-order-btn {
+    padding: 12px 22px;
+    border: 1px solid #dc2626;
+    border-radius: 10px;
+    background: transparent;
+    color: #dc2626;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.cancel-order-btn:hover {
+    background: #dc2626;
+    color: #fff;
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+.dark-mode .track-search-card,
+.dark-mode .tracked-order-card {
+    background: #151515;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .track-input-group input {
+    background: #1e1e1e;
+    color: #fff;
+    border-color: #444;
+}
+
+.dark-mode .track-input-group input:focus {
+    border-color: #fff;
+}
+
+.dark-mode .track-btn {
+    background: #fff;
+    color: #111;
+}
+
+.dark-mode .tracked-order-info div,
+.dark-mode .tracked-product-item,
+.dark-mode .delivery-address-section p {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.dark-mode .tracking-timeline::before {
+    background: #444;
+}
+
+.dark-mode .tracking-icon {
+    background: #333;
+    color: #aaa;
+    border-color: #151515;
+}
+
+.dark-mode .tracking-step.completed .tracking-icon,
+.dark-mode .tracking-step.current .tracking-icon {
+    background: #fff;
+    color: #111;
+}
+
+
+/* Dark mode current-step pulse */
+
+.dark-mode .tracking-step.current .tracking-icon {
+    animation: trackingPulseDark 1.8s ease-in-out infinite;
+}
+
+@keyframes trackingPulseDark {
+
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.08);
+    }
+
+    50% {
+        transform: scale(1.06);
+        box-shadow: 0 0 0 9px rgba(255, 255, 255, 0.04);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.08);
+    }
+
+}
+
+.dark-mode .order-status {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+}
+
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .tracking-step.current .tracking-icon {
+        animation: none;
+    }
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .track-order-page {
+        padding: 50px 15px 70px;
+    }
+
+    .track-order-header h1 {
+        font-size: 32px;
+    }
+
+    #track-order-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .track-btn {
+        width: 100%;
+    }
+
+    .tracked-order-card {
+        padding: 22px;
+    }
+
+    .tracked-order-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .tracked-order-info {
+        grid-template-columns: 1fr;
+    }
+
+    .tracking-timeline {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .tracking-timeline::before {
+        top: 20px;
+        bottom: 20px;
+        left: 21px;
+        right: auto;
+        width: 2px;
+        height: auto;
+    }
+
+    .tracking-step {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 15px;
+    }
+
+    .tracking-icon {
+        flex-shrink: 0;
+        margin: 0;
+    }
+
+    .tracking-content span {
+        max-width: none;
+        margin: 0;
+    }
+
+    .tracked-product-item {
+        align-items: flex-start;
+    }
+
+    .tracked-product-price {
+        font-size: 13px;
+    }
+
+    .track-order-actions {
+        justify-content: stretch;
+    }
+
+    .cancel-order-btn {
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ElectroMart | My Profile</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="images/electromart-logo.png"
+    >
+
+</head>
+
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <img
+                src="images/electromart-logo.png"
+                alt="ElectroMart Logo"
+            >
+
+            <span>ElectroMart</span>
+
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="products.html">
+                    Products
+                </a>
+            </li>
+
+            <li>
+                <a href="wishlist.html">
+                    Wishlist
+                </a>
+            </li>
+
+            <li>
+                <a href="cart.html">
+                    Cart
+                    <span id="cart-count">0</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="profile.html" class="active">
+                    Profile
+                </a>
+            </li>
+
+            <li>
+                <button
+                    id="theme-toggle"
+                    class="theme-toggle"
+                    type="button"
+                >
+                    🌙
+                </button>
+            </li>
+
+            <li class="signout-item">
+
+                <button
+                    type="button"
+                    id="auth-nav-button"
+                    class="signout-btn"
+                >
+                    Sign Out
+                </button>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     PROFILE
+========================= -->
+
+<main class="profile-page">
+
+    <section class="profile-header">
+
+        <span class="section-label">
+            MY ACCOUNT
+        </span>
+
+        <h1>
+            My Profile
+        </h1>
+
+        <p>
+            Manage your personal information and account.
+        </p>
+
+    </section>
+
+
+    <section class="profile-container">
+
+        <!-- PROFILE CARD -->
+
+        <div class="profile-card">
+
+            <div class="profile-avatar">
+                👤
+            </div>
+
+
+            <h2 id="profile-name">
+                User
+            </h2>
+
+            <p id="profile-email">
+                user@email.com
+            </p>
+
+
+            <button
+                class="profile-edit-btn"
+                id="edit-profile-btn"
+            >
+                ✏️ Edit Profile
+            </button>
+
+        </div>
+
+
+        <!-- PROFILE DETAILS -->
+
+        <div class="profile-details">
+
+            <div class="profile-details-header">
+
+                <div>
+
+                    <span class="section-label">
+                        PERSONAL INFORMATION
+                    </span>
+
+                    <h2>
+                        Account Details
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-info-grid">
+
+                <div class="profile-info">
+
+                    <span>
+                        Full Name
+                    </span>
+
+                    <strong id="detail-name">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-info">
+
+                    <span>
+                        Email Address
+                    </span>
+
+                    <strong id="detail-email">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-info">
+
+                    <span>
+                        Phone Number
+                    </span>
+
+                    <strong id="detail-phone">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-info">
+
+                    <span>
+                        Address
+                    </span>
+
+                    <strong id="detail-address">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="profile-actions">
+
+                <a href="orders.html" class="profile-action-card">
+
+                    <span class="action-icon">
+                        📦
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            My Orders
+                        </strong>
+
+                        <p>
+                            Track your orders
+                        </p>
+
+                    </div>
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+
+                <a href="wishlist.html" class="profile-action-card">
+
+                    <span class="action-icon">
+                        ❤️
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Wishlist
+                        </strong>
+
+                        <p>
+                            View saved products
+                        </p>
+
+                    </div>
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+
+                <a href="cart.html" class="profile-action-card">
+
+                    <span class="action-icon">
+                        🛒
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Shopping Cart
+                        </strong>
+
+                        <p>
+                            View your cart
+                        </p>
+
+                    </div>
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     EDIT PROFILE MODAL
+========================= -->
+
+<div
+    id="profile-modal"
+    class="profile-modal"
+>
+
+    <div class="profile-modal-content">
+
+        <button
+            id="close-profile-modal"
+            class="close-modal"
+            type="button"
+        >
+            ×
+        </button>
+
+
+        <h2>
+            Edit Profile
+        </h2>
+
+        <p>
+            Update your account information.
+        </p>
+
+
+        <form id="profile-form">
+
+            <label>
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="edit-name"
+                required
+            >
+
+
+            <label>
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="edit-email"
+                required
+            >
+
+
+            <label>
+                Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="edit-phone"
+                placeholder="Enter phone number"
+            >
+
+
+            <label>
+                Address
+            </label>
+
+            <textarea
+                id="edit-address"
+                rows="3"
+                placeholder="Enter your address"
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="save-profile-btn"
+            >
+                Save Changes
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script src="css/js/main.js"></script>
+
+<script src="css/js/profile.js"></script>
+
+</body>
+
+</html>

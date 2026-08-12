@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ElectroMart | Track Order</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet" href="css/track-order.css">
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="images/electromart-logo.png"
+    >
+
+</head>
+
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <img
+                src="images/electromart-logo.png"
+                alt="ElectroMart Logo"
+            >
+
+            <span>ElectroMart</span>
+
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="products.html">
+                    Products
+                </a>
+            </li>
+
+            <li>
+                <a href="wishlist.html">
+                    Wishlist
+                </a>
+            </li>
+
+            <li>
+                <a href="cart.html">
+                    Cart
+                    <span id="cart-count">0</span>
+                </a>
+            </li>
+
+            <!-- PROFILE -->
+
+            <li
+                id="profile-nav-item"
+                style="display: none;"
+            >
+
+                <a href="profile.html">
+                    Profile
+                </a>
+
+            </li>
+
+
+            <!-- THEME -->
+
+            <li>
+
+                <button
+                    id="theme-toggle"
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Toggle dark mode"
+                >
+                    🌙
+                </button>
+
+            </li>
+
+
+            <!-- AUTH -->
+
+            <li id="auth-nav-item">
+
+                <button
+                    type="button"
+                    id="auth-nav-button"
+                    class="signin-nav-btn"
+                >
+                    Sign In
+                </button>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     TRACK ORDER PAGE
+========================= -->
+
+<main class="track-order-page">
+
+    <!-- PAGE HEADER -->
+
+    <section class="track-order-header">
+
+        <span class="section-label">
+            ORDER TRACKING
+        </span>
+
+        <h1>
+            Track Your Order
+        </h1>
+
+        <p>
+            Enter your order ID to check your delivery status.
+        </p>
+
+    </section>
+
+
+    <!-- SEARCH CARD -->
+
+    <section class="track-search-card">
+
+        <form id="track-order-form">
+
+            <div class="track-input-group">
+
+                <label for="order-id">
+                    Order ID
+                </label>
+
+                <input
+                    type="text"
+                    id="order-id"
+                    placeholder="Enter your order ID"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="track-btn"
+            >
+                Track Order
+            </button>
+
+        </form>
+
+
+        <p
+            id="track-message"
+            class="track-message"
+        ></p>
+
+    </section>
+
+
+    <!-- =========================
+         ORDER RESULT
+    ========================= -->
+
+    <section
+        id="order-result"
+        class="order-result"
+        style="display: none;"
+    >
+
+        <!-- ORDER SUMMARY -->
+
+        <div class="tracked-order-card">
+
+            <div class="tracked-order-header">
+
+                <div>
+
+                    <span class="section-label">
+                        ORDER
+                    </span>
+
+                    <h2 id="tracked-order-id">
+                        —
+                    </h2>
+
+                </div>
+
+
+                <span
+                    id="tracked-order-status"
+                    class="order-status"
+                >
+                    —
+                </span>
+
+            </div>
+
+
+            <!-- ORDER INFO -->
+
+            <div class="tracked-order-info">
+
+                <div>
+
+                    <span>
+                        Order Date
+                    </span>
+
+                    <strong id="tracked-order-date">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Total Amount
+                    </span>
+
+                    <strong id="tracked-order-total">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Payment
+                    </span>
+
+                    <strong id="tracked-order-payment">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 TRACKING TIMELINE
+            ========================= -->
+
+            <div class="tracking-section">
+
+                <h3>
+                    Delivery Progress
+                </h3>
+
+
+                <div class="tracking-timeline">
+
+                    <!-- CONFIRMED -->
+
+                    <div
+                        class="tracking-step"
+                        data-status="confirmed"
+                    >
+
+                        <div class="tracking-icon">
+                            ✓
+                        </div>
+
+                        <div class="tracking-content">
+
+                            <strong>
+                                Order Confirmed
+                            </strong>
+
+                            <span>
+                                Your order has been confirmed.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PACKED -->
+
+                    <div
+                        class="tracking-step"
+                        data-status="packed"
+                    >
+
+                        <div class="tracking-icon">
+                            📦
+                        </div>
+
+                        <div class="tracking-content">
+
+                            <strong>
+                                Packed
+                            </strong>
+
+                            <span>
+                                Your order has been packed.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SHIPPED -->
+
+                    <div
+                        class="tracking-step"
+                        data-status="shipped"
+                    >
+
+                        <div class="tracking-icon">
+                            🚚
+                        </div>
+
+                        <div class="tracking-content">
+
+                            <strong>
+                                Shipped
+                            </strong>
+
+                            <span>
+                                Your order is on the way.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- OUT FOR DELIVERY -->
+
+                    <div
+                        class="tracking-step"
+                        data-status="out-for-delivery"
+                    >
+
+                        <div class="tracking-icon">
+                            🛵
+                        </div>
+
+                        <div class="tracking-content">
+
+                            <strong>
+                                Out for Delivery
+                            </strong>
+
+                            <span>
+                                Your order is out for delivery.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DELIVERED -->
+
+                    <div
+                        class="tracking-step"
+                        data-status="delivered"
+                    >
+
+                        <div class="tracking-icon">
+                            ✓
+                        </div>
+
+                        <div class="tracking-content">
+
+                            <strong>
+                                Delivered
+                            </strong>
+
+                            <span>
+                                Your order has been delivered.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 PRODUCTS
+            ========================= -->
+
+            <div class="tracked-products-section">
+
+                <h3>
+                    Order Items
+                </h3>
+
+                <div
+                    id="tracked-products"
+                    class="tracked-products"
+                >
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 DELIVERY ADDRESS
+            ========================= -->
+
+            <div class="delivery-address-section">
+
+                <h3>
+                    Delivery Address
+                </h3>
+
+                <p id="tracked-address">
+                    —
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+                 CANCEL ORDER
+            ========================= -->
+
+            <div class="track-order-actions">
+
+                <button
+                    id="cancel-tracked-order"
+                    class="cancel-order-btn"
+                    type="button"
+                >
+                    Cancel Order
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script src="css/js/main.js"></script>
+
+<script src="css/js/track-order.js"></script>
+
+</body>
+
+</html>

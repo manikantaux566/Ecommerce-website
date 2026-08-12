@@ -2,62 +2,100 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>ElectroMart | Home</title>
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="icon" type="image/png" href="images/electromart-logo.png">
+
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="images/electromart-logo.png"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- =================== NAVBAR =================== -->
+<!-- =================== NAVBAR =================== -->
 
     <header>
 
         <nav class="navbar">
 
             <div class="logo">
-                <img src="images/electromart-logo.png" alt="ElectroMart Logo">
+
+                <img
+                    src="images/electromart-logo.png"
+                    alt="ElectroMart Logo"
+                >
+
                 <span>ElectroMart</span>
+
             </div>
-        
+
+
             <ul class="nav-links">
-        
+
                 <li>
                     <a href="index.html">
                         Home
                     </a>
                 </li>
-        
+
+
                 <li>
                     <a href="products.html">
                         Products
                     </a>
                 </li>
-        
+
+
                 <li>
                     <a href="wishlist.html">
                         Wishlist
                     </a>
                 </li>
-        
+
+
                 <li>
                     <a href="cart.html">
                         Cart
                         <span id="cart-count">0</span>
                     </a>
                 </li>
-        
+
+
+                <!-- =========================
+                     PROFILE
+                ========================== -->
+
+                <li id="profile-nav-item">
+
+                    <a href="profile.html">
+                        Profile
+                    </a>
+
+                </li>
+
+
                 <li>
+
                     <button
                         id="theme-toggle"
                         class="theme-toggle"
@@ -65,9 +103,19 @@
                     >
                         🌙
                     </button>
+
                 </li>
-        
-                <li id="auth-nav-item" class="signout-item">
+
+
+                <!-- =========================
+                     SIGN IN / SIGN OUT
+                ========================== -->
+
+                <li
+                    id="auth-nav-item"
+                    class="signout-item"
+                >
+
                     <button
                         type="button"
                         id="auth-nav-button"
@@ -75,34 +123,47 @@
                     >
                         Sign Out
                     </button>
+
                 </li>
-        
+
             </ul>
-        
+
         </nav>
 
     </header>
 
-    <!-- ================= HERO ================= -->
+
+<!-- ================= HERO ================= -->
 
     <section class="hero">
 
         <div class="hero-content">
 
-            <h1>Upgrade Your Tech Lifestyle</h1>
+            <h1>
+                Upgrade Your Tech Lifestyle
+            </h1>
 
             <p>
-                Discover the latest smartphones, laptops, smartwatches,
-                headphones and accessories at unbeatable prices.
+                Discover the latest smartphones, laptops,
+                smartwatches, headphones and accessories
+                at unbeatable prices.
             </p>
+
 
             <div class="hero-buttons">
 
-                <a href="products.html" class="btn btn-primary">
+                <a
+                    href="products.html"
+                    class="btn btn-primary"
+                >
                     Shop Now
                 </a>
 
-                <a href="products.html" class="btn btn-secondary">
+
+                <a
+                    href="products.html"
+                    class="btn btn-secondary"
+                >
                     Explore Products
                 </a>
 
@@ -112,29 +173,698 @@
 
     </section>
 
-    <!-- ================= FEATURES ================= -->
 
-    <section class="features">
+<!-- ================= CATEGORIES ================= -->
 
-        <div class="feature-box">
-            <h3>🚚 Fast Delivery</h3>
-            <p>Quick delivery across India.</p>
+    <section class="categories-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    SHOP BY CATEGORY
+                </span>
+
+                <h2>
+                    Explore Our Categories
+                </h2>
+
+                <p>
+                    Find the perfect tech for your everyday needs.
+                </p>
+
+            </div>
+
+
+            <a
+                href="products.html"
+                class="view-all-btn"
+            >
+                View All Products →
+            </a>
+
         </div>
 
-        <div class="feature-box">
-            <h3>🔒 Secure Payments</h3>
-            <p>100% Safe Online Transactions.</p>
-        </div>
 
-        <div class="feature-box">
-            <h3>⭐ Top Brands</h3>
-            <p>Apple, Samsung, Sony and more.</p>
+        <div class="categories-grid">
+
+
+            <!-- SMARTPHONES -->
+
+            <a
+                href="products.html?category=smartphones"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    📱
+                </div>
+
+                <h3>
+                    Smartphones
+                </h3>
+
+                <p>
+                    Latest smartphones
+                </p>
+
+                <span>
+                    Explore →
+                </span>
+
+            </a>
+
+
+            <!-- LAPTOPS -->
+
+            <a
+                href="products.html?category=laptops"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Laptops
+                </h3>
+
+                <p>
+                    Power for work & play
+                </p>
+
+                <span>
+                    Explore →
+                </span>
+
+            </a>
+
+
+            <!-- AUDIO -->
+
+            <a
+                href="products.html?category=audio"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    🎧
+                </div>
+
+                <h3>
+                    Audio
+                </h3>
+
+                <p>
+                    Sound that moves you
+                </p>
+
+                <span>
+                    Explore →
+                </span>
+
+            </a>
+
+
+            <!-- SMARTWATCHES -->
+
+            <a
+                href="products.html?category=smartwatches"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    ⌚
+                </div>
+
+                <h3>
+                    Smart Watches
+                </h3>
+
+                <p>
+                    Stay connected
+                </p>
+
+                <span>
+                    Explore →
+                </span>
+
+            </a>
+
+
+            <!-- GAMING -->
+
+            <a
+                href="products.html?category=gaming"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    🎮
+                </div>
+
+                <h3>
+                    Gaming
+                </h3>
+
+                <p>
+                    Level up your setup
+                </p>
+
+                <span>
+                    Explore →
+                </span>
+
+            </a>
+
+
+            <!-- MONITORS -->
+
+            <a
+                href="products.html?category=monitors"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    🖥️
+                </div>
+
+                <h3>
+                    Monitors
+                </h3>
+
+                <p>
+                    See every detail
+                </p>
+
+                <span>
+                    Explore →
+                </span>
+
+            </a>
+
+
+            <!-- CAMERAS -->
+
+            <a
+                href="products.html?category=cameras"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    📷
+                </div>
+
+                <h3>
+                    Cameras
+                </h3>
+
+                <p>
+                    Capture every moment
+                </p>
+
+                <span>
+                    Explore →
+                </span>
+
+            </a>
+
+
+            <!-- ACCESSORIES -->
+
+            <a
+                href="products.html?category=accessories"
+                class="category-card"
+            >
+
+                <div class="category-icon">
+                    🔌
+                </div>
+
+                <h3>
+                    Accessories
+                </h3>
+
+                <p>
+                    Complete your setup
+                </p>
+
+                <span>
+                    Explore →
+                </span>
+
+            </a>
+
         </div>
 
     </section>
 
-    <!-- JavaScript -->
+
+<!-- ================= DEALS CAROUSEL ================= -->
+
+    <section class="deals-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    LIMITED TIME
+                </span>
+
+                <h2>
+                    Deals of the Day 🔥
+                </h2>
+
+                <p>
+                    Grab your favourite gadgets before
+                    the offers disappear.
+                </p>
+
+            </div>
+
+
+            <a
+                href="products.html"
+                class="view-all-btn"
+            >
+                View All Products →
+            </a>
+
+        </div>
+
+
+        <div class="deals-carousel">
+
+            <button
+                class="carousel-btn carousel-prev"
+                id="deal-prev"
+                aria-label="Previous deal"
+            >
+                ❮
+            </button>
+
+
+            <div class="deals-track-wrapper">
+
+                <div
+                    class="deals-track"
+                    id="deals-track"
+                >
+
+
+                    <!-- DEAL 1 -->
+
+                    <article class="deal-card">
+
+                        <div class="deal-content">
+
+                            <span class="deal-tag">
+                                30% OFF
+                            </span>
+
+                            <span class="deal-category">
+                                AUDIO
+                            </span>
+
+                            <h3>
+                                Wireless Headphones
+                            </h3>
+
+                            <p>
+                                Immersive sound with powerful
+                                bass and all-day comfort.
+                            </p>
+
+                            <div class="deal-price">
+
+                                <strong>
+                                    ₹2,799
+                                </strong>
+
+                                <del>
+                                    ₹3,999
+                                </del>
+
+                            </div>
+
+                            <a
+                                href="products.html?category=audio"
+                                class="deal-btn"
+                            >
+                                Shop Deal →
+                            </a>
+
+                        </div>
+
+
+                        <div class="deal-image">
+
+                            <img
+                                src="images/headphones.jpg"
+                                alt="Wireless Headphones"
+                            >
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- DEAL 2 -->
+
+                    <article class="deal-card">
+
+                        <div class="deal-content">
+
+                            <span class="deal-tag">
+                                25% OFF
+                            </span>
+
+                            <span class="deal-category">
+                                SMART TECH
+                            </span>
+
+                            <h3>
+                                Premium Smartwatch
+                            </h3>
+
+                            <p>
+                                Track your fitness, calls and
+                                everyday activities in style.
+                            </p>
+
+                            <div class="deal-price">
+
+                                <strong>
+                                    ₹3,749
+                                </strong>
+
+                                <del>
+                                    ₹4,999
+                                </del>
+
+                            </div>
+
+                            <a
+                                href="products.html?category=smartwatches"
+                                class="deal-btn"
+                            >
+                                Shop Deal →
+                            </a>
+
+                        </div>
+
+
+                        <div class="deal-image">
+
+                            <img
+                                src="images/smartwatch.jpg"
+                                alt="Smartwatch"
+                            >
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- DEAL 3 -->
+
+                    <article class="deal-card">
+
+                        <div class="deal-content">
+
+                            <span class="deal-tag">
+                                20% OFF
+                            </span>
+
+                            <span class="deal-category">
+                                COMPUTING
+                            </span>
+
+                            <h3>
+                                Premium Laptop
+                            </h3>
+
+                            <p>
+                                Powerful performance for work,
+                                creativity and entertainment.
+                            </p>
+
+                            <div class="deal-price">
+
+                                <strong>
+                                    ₹59,999
+                                </strong>
+
+                                <del>
+                                    ₹74,999
+                                </del>
+
+                            </div>
+
+                            <a
+                                href="products.html?category=laptops"
+                                class="deal-btn"
+                            >
+                                Shop Deal →
+                            </a>
+
+                        </div>
+
+
+                        <div class="deal-image">
+
+                            <img
+                                src="images/laptop.jpg"
+                                alt="Laptop"
+                            >
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- DEAL 4 -->
+
+                    <article class="deal-card">
+
+                        <div class="deal-content">
+
+                            <span class="deal-tag">
+                                35% OFF
+                            </span>
+
+                            <span class="deal-category">
+                                GAMING
+                            </span>
+
+                            <h3>
+                                Mechanical Keyboard
+                            </h3>
+
+                            <p>
+                                Fast response, satisfying switches
+                                and a premium gaming feel.
+                            </p>
+
+                            <div class="deal-price">
+
+                                <strong>
+                                    ₹2,599
+                                </strong>
+
+                                <del>
+                                    ₹3,999
+                                </del>
+
+                            </div>
+
+                            <a
+                                href="products.html?category=gaming"
+                                class="deal-btn"
+                            >
+                                Shop Deal →
+                            </a>
+
+                        </div>
+
+
+                        <div class="deal-image">
+
+                            <img
+                                src="images/mechanical-keyboard.jpg"
+                                alt="Mechanical Keyboard"
+                            >
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- DEAL 5 -->
+
+                    <article class="deal-card">
+
+                        <div class="deal-content">
+
+                            <span class="deal-tag">
+                                40% OFF
+                            </span>
+
+                            <span class="deal-category">
+                                ACCESSORIES
+                            </span>
+
+                            <h3>
+                                Wireless Mouse
+                            </h3>
+
+                            <p>
+                                Smooth precision and ergonomic
+                                comfort for everyday use.
+                            </p>
+
+                            <div class="deal-price">
+
+                                <strong>
+                                    ₹899
+                                </strong>
+
+                                <del>
+                                    ₹1,499
+                                </del>
+
+                            </div>
+
+                            <a
+                                href="products.html?category=accessories"
+                                class="deal-btn"
+                            >
+                                Shop Deal →
+                            </a>
+
+                        </div>
+
+
+                        <div class="deal-image">
+
+                            <img
+                                src="images/wireless-mouse.jpg"
+                                alt="Wireless Mouse"
+                            >
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="carousel-btn carousel-next"
+                id="deal-next"
+                aria-label="Next deal"
+            >
+                ❯
+            </button>
+
+        </div>
+
+
+        <div
+            class="carousel-dots"
+            id="carousel-dots"
+        >
+
+            <button
+                class="carousel-dot active"
+                data-slide="0"
+                aria-label="Go to deal 1"
+            ></button>
+
+            <button
+                class="carousel-dot"
+                data-slide="1"
+                aria-label="Go to deal 2"
+            ></button>
+
+            <button
+                class="carousel-dot"
+                data-slide="2"
+                aria-label="Go to deal 3"
+            ></button>
+
+            <button
+                class="carousel-dot"
+                data-slide="3"
+                aria-label="Go to deal 4"
+            ></button>
+
+            <button
+                class="carousel-dot"
+                data-slide="4"
+                aria-label="Go to deal 5"
+            ></button>
+
+        </div>
+
+    </section>
+
+
+<!-- ================= FEATURES ================= -->
+
+    <section class="features">
+
+        <div class="feature-box">
+
+            <h3>
+                🚚 Fast Delivery
+            </h3>
+
+            <p>
+                Quick delivery across India.
+            </p>
+
+        </div>
+
+
+        <div class="feature-box">
+
+            <h3>
+                🔒 Secure Payments
+            </h3>
+
+            <p>
+                100% Safe Online Transactions.
+            </p>
+
+        </div>
+
+
+        <div class="feature-box">
+
+            <h3>
+                ⭐ Top Brands
+            </h3>
+
+            <p>
+                Apple, Samsung, Sony and more.
+            </p>
+
+        </div>
+
+    </section>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
     <script src="css/js/main.js"></script>
+
+    <script src="css/js/deals.js"></script>
 
 </body>
 
